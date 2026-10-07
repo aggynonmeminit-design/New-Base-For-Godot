@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://ei2x2d0fc0ck"]
+
+[ext_resource type="FontFile" uid="uid://jk8fjgbb73wj" path="res://2- General Assets/Fonts/Toxic.ttf" id="1_j4sv6"]
+
+[resource]
+default_font = ExtResource("1_j4sv6")
+default_font_size = 32
