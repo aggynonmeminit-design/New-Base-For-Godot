@@ -1,0 +1,61 @@
+@tool
+extends Button
+class_name AnimatedButton
+
+#===================================================================================================
+#Variables
+@export_category("Hover")
+@export var hover_scale:               Vector2 = Vector2(1.02, 1.02)
+@export var hover_animation_length:    float   = 0.1
+@export var un_hover_animation_length: float   = 0.1
+
+@export_category("Press")
+@export var press_scale:               Vector2 = Vector2(0.97, 0.97)
+@export var press_animation_length_1:  float   = 0.1
+@export var press_animation_length_2:  float   = 0.1
+
+var animation_tween: Tween 
+
+#===================================================================================================
+#Main functions
+
+func _ready() -> void:
+	flat = true
+	animation_tween = create_tween()
+	animation_tween.tween_property(self, "animation_tween", animation_tween, 0)
+	button_down.connect(_button_press)
+	
+	mouse_entered.connect(_button_hover)
+	mouse_exited.connect(_button_un_hover)
+	
+	focus_entered.connect(_button_hover)
+	focus_exited.connect(_button_un_hover)
+	
+	pivot_offset_ratio = Vector2.ONE/2
+
+func _button_press() -> void:
+	_global_tween_reset()
+	
+	animation_tween.tween_property(self, "scale", press_scale, press_animation_length_1)
+	
+	await button_up
+	
+	_global_tween_reset()
+	animation_tween.tween_property(self, "scale", hover_scale, press_animation_length_2)
+
+func _button_hover() -> void:
+	_global_tween_reset()
+	
+	animation_tween.tween_property(self, "scale", hover_scale, hover_animation_length)
+
+func _button_un_hover() -> void:
+	_global_tween_reset()
+	
+	animation_tween.tween_property(self, "scale", Vector2.ONE, un_hover_animation_length)
+
+
+#===================================================================================================
+#Summ funtions
+func _global_tween_reset() -> void:
+	if animation_tween:
+		animation_tween = Global._reset_tween(animation_tween, self)

@@ -1,0 +1,20 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://d30sxeuoqikpw"
+path="res://.godot/imported/EmptyNinePatch.svg-ea8757d7657a19a91427002c2bfa4168.dpitex"
+
+[deps]
+
+source_file="res://2- General Assets/Images/Bases/EmptyNinePatch.svg"
+dest_files=["res://.godot/imported/EmptyNinePatch.svg-ea8757d7657a19a91427002c2bfa4168.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={}
+fix_alpha_border=false
+premult_alpha=false
+compress=true

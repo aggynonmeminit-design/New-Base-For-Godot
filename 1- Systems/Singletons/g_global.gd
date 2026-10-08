@@ -12,8 +12,11 @@ extends Node
 #===================================================================================================
 #Summ funtions
 
-func reset_tween(tween: Tween, parent: Node) -> Tween:
+func _push_weird(who: Node) -> void:
+	push_error(["Weird error at %s" % str(who)])
+
+func _reset_tween(tween: Tween, parent: Node) -> Tween:
 	if tween.is_valid():
 		tween.kill()
-	var new_tween = parent.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	var new_tween := parent.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	return new_tween

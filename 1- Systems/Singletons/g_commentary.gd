@@ -23,12 +23,12 @@ Code organization:
 		- Minor divisions might use instead a #----- line of same lenght
 		- Even lesser separations will be just an empty line
 
-	- The common divisions are as follows:
-		#extends X and class
-		#Variables
-		#Dictionaries and Enums
-		#Main functions(_ready, _process, _input, etc...)
-		#Summarizing functions(functions used for shortening and avoid repetitions in other functions)
+		- The common divisions are as follows:
+			#extends X and class
+			#Variables
+			#Dictionaries and Enums
+			#Main functions(_ready, _process, _input, etc...)
+			#Summarizing functions(functions used for shortening and avoid repetitions in other functions)
 (
 #===================================================================================================
 #Variables
@@ -42,7 +42,7 @@ Code organization:
 #===================================================================================================
 #Summ funtions
 )
-
+		- The main exception being SignalBus with only the division #Signals
 	- Nomenclature:
 		- Common variables(ints, floats, Strings, bools, etc...) use snake_case
 		- Node and Signal references use Pascal_Snake_Case

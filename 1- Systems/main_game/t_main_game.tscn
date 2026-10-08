@@ -1,21 +1,59 @@
 [gd_scene format=3 uid="uid://8hxdt3rtgt7n"]
 
 [ext_resource type="Script" uid="uid://cxslkq4cjjok1" path="res://1- Systems/main_game/g_main_game.gd" id="1_mp05p"]
+[ext_resource type="Texture2D" uid="uid://b5r4hug1jkhvq" path="res://2- General Assets/Images/Bases/PlaceHolderCheckeredBoard.png" id="2_e0n53"]
+[ext_resource type="Script" uid="uid://vrpy4sfbtrm0" path="res://1- Systems/main_game/g_systems.gd" id="2_ifhs5"]
+[ext_resource type="Material" uid="uid://c0bwtie3wp8h6" path="res://1- Systems/debug/checkered_board/s_checkered_board.tres" id="2_w1n1r"]
+[ext_resource type="Script" uid="uid://dhnk3i111wsth" path="res://1- Systems/debug/checkered_board/g_checkered_board.gd" id="3_mb6y6"]
+[ext_resource type="Texture2D" uid="uid://b5kdg4273noi8" path="res://2- General Assets/Images/Captura de tela 2026-10-06 215649.png" id="6_1u32u"]
+[ext_resource type="PackedScene" uid="uid://bttkit4kg8vsb" path="res://1- Systems/menu/t_menu.tscn" id="7_2xvpn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bhunq"]
 
 [node name="MainGame" type="Node" unique_id=1749332084]
+process_mode = 3
 script = ExtResource("1_mp05p")
 
-[node name="Systems" type="Node" parent="." unique_id=2097169342]
+[node name="Systems" type="Node" parent="." unique_id=2097169342 node_paths=PackedStringArray("pause_root")]
+process_mode = 3
+script = ExtResource("2_ifhs5")
+pause_root = NodePath("../Pause/PauseRoot")
 
 [node name="World" type="Node2D" parent="." unique_id=1990451398]
+process_mode = 1
 
 [node name="Level" type="Node2D" parent="World" unique_id=943610512]
 
+[node name="DebugCheckeredBoard" type="NinePatchRect" parent="World/Level" unique_id=1364660104]
+modulate = Color(0.288518, 0.288518, 0.28851795, 1)
+material = ExtResource("2_w1n1r")
+offset_left = -20.0
+offset_top = -35.0
+offset_right = 705.0
+offset_bottom = 371.0
+texture = ExtResource("2_e0n53")
+region_rect = Rect2(16, 16, 224, 96)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource("3_mb6y6")
+metadata/_custom_type_script = "uid://dhnk3i111wsth"
+
 [node name="Entities" type="Node2D" parent="World" unique_id=1755499301]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="World/Entities" unique_id=360759259]
+position = Vector2(328, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Entities/RigidBody2D" unique_id=380477944]
+shape = SubResource("CircleShape2D_bhunq")
+
+[node name="CapturaDeTela20261006215649" type="Sprite2D" parent="World/Entities/RigidBody2D" unique_id=907224833]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_1u32u")
 
 [node name="Effects" type="Node2D" parent="World" unique_id=1645257191]
 
 [node name="Hud" type="CanvasLayer" parent="." unique_id=1851524762]
+process_mode = 1
 layer = 10
 
 [node name="HudRoot" type="Control" parent="Hud" unique_id=831059610]
@@ -28,9 +66,12 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="Pause" type="CanvasLayer" parent="." unique_id=563949156]
+process_mode = 2
 layer = 20
 
 [node name="PauseRoot" type="Control" parent="Pause" unique_id=956963120]
+visible = false
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,12 +80,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Menu" parent="Pause/PauseRoot" unique_id=1999742188 instance=ExtResource("7_2xvpn")]
+layout_mode = 1
+
 [node name="Transition" type="CanvasLayer" parent="." unique_id=1948024339]
+process_mode = 3
 layer = 40
 
 [node name="TrasitionRoot" type="Control" parent="Transition" unique_id=15927769]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c0bwtie3wp8h6"]
+
+[ext_resource type="Shader" uid="uid://xa4s5ykebq14" path="res://1- Systems/debug/checkered_board/g_checkered_board.gdshader" id="1_5btgf"]
+
+[resource]
+shader = ExtResource("1_5btgf")
+shader_parameter/scroll_speed = Vector2(0.1, 0.2)
+shader_parameter/scale = 1.0

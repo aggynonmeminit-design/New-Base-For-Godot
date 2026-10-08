@@ -42,9 +42,8 @@ folder_colors={
 "res://1- Systems/": "purple",
 "res://2- General Assets/": "red",
 "res://3- Entities/": "pink",
-"res://4- Hud/": "pink",
-"res://5- Hud/": "pink",
-"res://5- Level/": "pink"
+"res://4- Level/": "pink",
+"res://5- Hud/": "pink"
 }
 
 [gui]
