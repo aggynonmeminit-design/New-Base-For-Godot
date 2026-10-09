@@ -14,15 +14,16 @@ var is_game_paused: bool = false
 #Main functions
 
 func _ready() -> void:
-	SignalBus.game_pause.connect(_game_pause)
+	SignalBus.pause_game.connect(_game_pause)
 	SignalBus.quit_game.connect(_quit_game)
+
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("c_Pause"):
 		if is_game_paused == true:
-			SignalBus.emit_signal("game_pause", false)
+			SignalBus.emit_signal("pause_game", false)
 		else: 
-			SignalBus.emit_signal("game_pause", true)
+			SignalBus.emit_signal("pause_game", true)
 #===================================================================================================
 #Summ funtions
 

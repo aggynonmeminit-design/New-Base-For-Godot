@@ -22,3 +22,4 @@ func _ready() -> void:
 		show_behind_parent = true
 		if get_parent():
 			get_parent().show_behind_parent = true
+		offset_transform_enabled = true

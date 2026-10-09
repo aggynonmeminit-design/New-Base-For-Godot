@@ -4,4 +4,4 @@ extends AnimatedButton
 
 
 func _on_pressed() -> void:
-	SignalBus.emit_signal("pause_game", false)
+	SignalBus.emit_signal("close_settings", self)

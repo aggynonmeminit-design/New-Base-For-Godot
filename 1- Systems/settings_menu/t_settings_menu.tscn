@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://vsf8npyq7ju5"]
+
+[ext_resource type="Texture2D" uid="uid://d30sxeuoqikpw" path="res://2- General Assets/Images/Bases/EmptyNinePatch.svg" id="1_m3i1l"]
+[ext_resource type="Script" uid="uid://lenbm4xbmppj" path="res://1- Systems/general_use/animated_button/g_button_ninepatch.gd" id="2_03uhn"]
+[ext_resource type="Theme" uid="uid://ei2x2d0fc0ck" path="res://2- General Assets/Theme/e_default_theme.tres" id="3_bdxef"]
+[ext_resource type="Script" uid="uid://t0mqooliqolo" path="res://1- Systems/settings_menu/g_settings_tab.gd" id="4_lwusq"]
+[ext_resource type="PackedScene" uid="uid://6cdqdc3nu244" path="res://1- Systems/settings_menu/t_settings_general.tscn" id="5_03uhn"]
+
+[node name="SettingsMenu" type="Control" unique_id=1028548766]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1188562332]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, -0.085)
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="BackGround" type="NinePatchRect" parent="MarginContainer" unique_id=958924947]
+modulate = Color(0.49566168, 0.3080042, 0.35162508, 1)
+show_behind_parent = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 0.11)
+texture = ExtResource("1_m3i1l")
+patch_margin_left = 13
+patch_margin_top = 13
+patch_margin_right = 13
+patch_margin_bottom = 18
+script = ExtResource("2_03uhn")
+metadata/_custom_type_script = "uid://lenbm4xbmppj"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=440115396]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2" unique_id=1218896159]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer2/GridContainer" unique_id=917879259]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_bdxef")
+current_tab = 0
+script = ExtResource("4_lwusq")
+
+[node name="General" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=1842336010]
+layout_mode = 2
+offset_transform_enabled = true
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer/General" unique_id=966192612]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = -39
+theme_override_constants/margin_bottom = -10
+
+[node name="SettingsGeneral" parent="MarginContainer2/GridContainer/TabContainer/General/MarginContainer" unique_id=952609840 instance=ExtResource("5_03uhn")]
+layout_mode = 2
+
+[node name="Video" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=745235418]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Audio" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=840949551]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Controls" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=269511676]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3

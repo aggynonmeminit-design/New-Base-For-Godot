@@ -4,13 +4,15 @@ class_name AnimatedButton
 
 #===================================================================================================
 #Variables
+var default_scale: Vector2 = scale
+
 @export_category("Hover")
-@export var hover_scale:               Vector2 = Vector2(1.02, 1.02)
+@export var hover_scale:               Vector2 = Vector2(1.03, 1.03) * default_scale
 @export var hover_animation_length:    float   = 0.1
 @export var un_hover_animation_length: float   = 0.1
 
 @export_category("Press")
-@export var press_scale:               Vector2 = Vector2(0.97, 0.97)
+@export var press_scale:               Vector2 = Vector2(0.96, 0.96) * default_scale
 @export var press_animation_length_1:  float   = 0.1
 @export var press_animation_length_2:  float   = 0.1
 
@@ -20,7 +22,8 @@ var animation_tween: Tween
 #Main functions
 
 func _ready() -> void:
-	pivot_offset_ratio = Vector2(0.5, 1)
+	if pivot_offset_ratio == Vector2(0.5, 0.5):
+		pivot_offset_ratio = Vector2(0.5, 1)
 	flat = true
 	animation_tween = create_tween()
 	animation_tween.tween_property(self, "animation_tween", animation_tween, 0)
@@ -52,7 +55,7 @@ func _button_hover() -> void:
 func _button_un_hover() -> void:
 	_global_tween_reset()
 	
-	animation_tween.tween_property(self, "scale", Vector2.ONE, un_hover_animation_length)
+	animation_tween.tween_property(self, "scale", default_scale, un_hover_animation_length)
 
 
 #===================================================================================================
