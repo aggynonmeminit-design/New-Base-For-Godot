@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://bttkit4kg8vsb"]
 
 [ext_resource type="Script" uid="uid://dx2hgxsufmuo0" path="res://1- Systems/menu/g_pause_button.gd" id="1_1jyql"]
+[ext_resource type="Shader" uid="uid://cm6r3b6fc1j6d" path="res://1- Systems/menu/e_menu_background_blur.gdshader" id="1_prbhy"]
 [ext_resource type="Texture2D" uid="uid://d30sxeuoqikpw" path="res://2- General Assets/Images/Bases/EmptyNinePatch.svg" id="2_yu4rf"]
 [ext_resource type="Script" uid="uid://lenbm4xbmppj" path="res://1- Systems/general_use/animated_button/g_button_ninepatch.gd" id="3_1jyql"]
 [ext_resource type="Script" uid="uid://y5eo2qa2nhkl" path="res://1- Systems/menu/g_quit_button.gd" id="4_yu4rf"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yu4rf"]
+shader = ExtResource("1_prbhy")
+shader_parameter/lod = 1.200000057
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhunq"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sky72"]
+bg_color = Color(0.24350342, 0.22663888, 0.28860524, 1)
+corner_radius_top_left = 39
+corner_radius_bottom_right = 30
+
 [node name="Menu" type="Control" unique_id=1999742188]
+show_behind_parent = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +26,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="." unique_id=173176362]
+[node name="Background" type="Panel" parent="." unique_id=173176362]
+modulate = Color(0.45735657, 0.3124096, 1, 1)
+material = SubResource("ShaderMaterial_yu4rf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background2" type="Panel" parent="." unique_id=718142311]
 modulate = Color(0.45735657, 0.3124096, 1, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -24,7 +45,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=673377079]
+[node name="FullRect" type="MarginContainer" parent="." unique_id=673377079]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,48 +53,53 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1085235774]
+[node name="VBox" type="VBoxContainer" parent="FullRect" unique_id=1085235774]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=752156970]
+[node name="Division1" type="Panel" parent="FullRect/VBox" unique_id=752156970]
 custom_minimum_size = Vector2(0, 38.195)
 layout_mode = 2
 offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bhunq")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1807258338]
+[node name="GameName" type="RichTextLabel" parent="FullRect/VBox" unique_id=1807258338]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 48
 text = "Game Name"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/RichTextLabel" unique_id=679668213]
+[node name="GameNamePanel" type="Panel" parent="FullRect/VBox/GameName" unique_id=1070456230]
+show_behind_parent = true
+custom_minimum_size = Vector2(198.38, 0)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sky72")
 
-[node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1910476499]
+[node name="Division2" type="Panel" parent="FullRect/VBox" unique_id=1910476499]
 custom_minimum_size = Vector2(0, 38.195)
 layout_mode = 2
 offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bhunq")
 
-[node name="AnimatedButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=891433817]
+[node name="AnimatedButton" type="Button" parent="FullRect/VBox" unique_id=891433817]
 layout_mode = 2
 size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0.5, 1)
 theme_override_font_sizes/font_size = 24
-text = "Resume Game"
+text = "Resume Game
+"
 flat = true
 script = ExtResource("1_1jyql")
 metadata/_custom_type_script = "uid://cudo2bl06d0q1"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AnimatedButton" unique_id=97092454]
+[node name="MarginContainer" type="MarginContainer" parent="FullRect/VBox/AnimatedButton" unique_id=97092454]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -84,34 +110,38 @@ grow_vertical = 2
 theme_override_constants/margin_left = -10
 theme_override_constants/margin_right = -10
 
-[node name="ButtonNinePatch" type="NinePatchRect" parent="MarginContainer/VBoxContainer/AnimatedButton/MarginContainer" unique_id=1392563845]
-modulate = Color(0.83, 0.54779994, 0.75004333, 1)
+[node name="ButtonNinePatch" type="NinePatchRect" parent="FullRect/VBox/AnimatedButton/MarginContainer" unique_id=1392563845]
+modulate = Color(1, 0.4582497, 0.68502194, 1)
 show_behind_parent = true
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 0.11)
 texture = ExtResource("2_yu4rf")
 patch_margin_left = 13
 patch_margin_top = 13
 patch_margin_right = 13
-patch_margin_bottom = 13
+patch_margin_bottom = 18
 script = ExtResource("3_1jyql")
 metadata/_custom_type_script = "uid://lenbm4xbmppj"
 
-[node name="Panel3" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=408266009]
+[node name="Division3" type="Panel" parent="FullRect/VBox" unique_id=408266009]
 custom_minimum_size = Vector2(0, 3.75)
 layout_mode = 2
 offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bhunq")
 
-[node name="AnimatedButton2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1822643310]
+[node name="AnimatedButton2" type="Button" parent="FullRect/VBox" unique_id=1822643310]
 layout_mode = 2
 size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0.5, 1)
 theme_override_font_sizes/font_size = 24
 text = "Quit"
 flat = true
 script = ExtResource("4_yu4rf")
 metadata/_custom_type_script = "uid://cudo2bl06d0q1"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AnimatedButton2" unique_id=937247044]
+[node name="MarginContainer" type="MarginContainer" parent="FullRect/VBox/AnimatedButton2" unique_id=937247044]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 8
@@ -128,17 +158,20 @@ grow_vertical = 2
 theme_override_constants/margin_left = -10
 theme_override_constants/margin_right = -10
 
-[node name="ButtonNinePatch" type="NinePatchRect" parent="MarginContainer/VBoxContainer/AnimatedButton2/MarginContainer" unique_id=826497626]
-modulate = Color(0.83, 0.54779994, 0.75004333, 1)
+[node name="ButtonNinePatch" type="NinePatchRect" parent="FullRect/VBox/AnimatedButton2/MarginContainer" unique_id=826497626]
+modulate = Color(1, 0.49, 1, 1)
 show_behind_parent = true
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 0.11)
+offset_transform_pivot_ratio = Vector2(0.5, 1)
 texture = ExtResource("2_yu4rf")
 patch_margin_left = 13
 patch_margin_top = 13
 patch_margin_right = 13
-patch_margin_bottom = 13
+patch_margin_bottom = 18
 script = ExtResource("3_1jyql")
 metadata/_custom_type_script = "uid://lenbm4xbmppj"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/AnimatedButton" to="MarginContainer/VBoxContainer/AnimatedButton" method="_on_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/AnimatedButton2" to="MarginContainer/VBoxContainer/AnimatedButton2" method="_on_pressed"]
+[connection signal="pressed" from="FullRect/VBox/AnimatedButton" to="FullRect/VBox/AnimatedButton" method="_on_pressed"]
+[connection signal="pressed" from="FullRect/VBox/AnimatedButton2" to="FullRect/VBox/AnimatedButton2" method="_on_pressed"]

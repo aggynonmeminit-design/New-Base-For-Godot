@@ -20,6 +20,7 @@ var animation_tween: Tween
 #Main functions
 
 func _ready() -> void:
+	pivot_offset_ratio = Vector2(0.5, 1)
 	flat = true
 	animation_tween = create_tween()
 	animation_tween.tween_property(self, "animation_tween", animation_tween, 0)
