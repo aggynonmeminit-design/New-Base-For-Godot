@@ -1,11 +1,20 @@
 extends Node
+#Resolution
+#Fullscreen
+#Max Fps
 
+#===================================================================================================
+#Variables
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+#===================================================================================================
+#Dicts and Enums
 
+#===================================================================================================
+#Main functions
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#===================================================================================================
+#Summ funtions
+
+func _set_max_fps(max_fps := 60) -> void:
+	Engine.max_fps = max_fps
+	

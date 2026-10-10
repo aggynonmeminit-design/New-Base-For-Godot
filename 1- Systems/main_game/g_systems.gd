@@ -3,7 +3,13 @@ extends Node
 
 #===================================================================================================
 #Variables
+@export_category("Nodes")
 @export var pause_root: Control #PauseRoot
+
+@export_category("Debug")
+@export var debug_can_pause : bool = true #True if game can be paused with _pause_game
+@export var debug_can_quit  : bool = true #True if game can be quit with _quit_game
+
 
 var is_game_paused: bool = false
 
@@ -14,11 +20,15 @@ var is_game_paused: bool = false
 #Main functions
 
 func _ready() -> void:
-	SignalBus.pause_game.connect(_game_pause)
-	SignalBus.quit_game.connect(_quit_game)
 
-	
+	if debug_can_pause:
+		SignalBus.pause_game.connect(_pause_game)
+
+	if debug_can_quit:
+		SignalBus.quit_game.connect(_quit_game)
+
 func _unhandled_input(event: InputEvent) -> void:
+
 	if event.is_action_pressed("c_Pause"):
 		if is_game_paused == true:
 			SignalBus.emit_signal("pause_game", false)
@@ -27,7 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 #===================================================================================================
 #Summ funtions
 
-func _game_pause(pause: bool = false) -> void:
+func _pause_game(pause: bool = false) -> void:
 	is_game_paused = pause
 	get_tree().paused = pause
 	match is_game_paused:

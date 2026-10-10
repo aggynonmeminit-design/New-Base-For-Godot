@@ -26,6 +26,39 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkt6e"]
+bg_color = Color(0.14117648, 0.0627451, 0.08627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78ykq"]
+bg_color = Color(0.49803922, 0.24313726, 0.31764707, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr0ht"]
+bg_color = Color(0.27058825, 0.1254902, 0.16862746, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5whnb"]
+bg_color = Color(0.65882355, 0.34509805, 0.43529412, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pf3du"]
+bg_color = Color(0.49803922, 0.24313726, 0.31764707, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pp5fd"]
+bg_color = Color(0.27, 0.1242, 0.12662996, 0.8980392)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tc67j"]
+bg_color = Color(1, 0.8117647, 0.8117647, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4sv6"]
 content_margin_left = 10.0
 content_margin_top = 10.0
@@ -90,6 +123,15 @@ Button/colors/font_pressed_color = Color(0.84313726, 0.27450982, 0.25882354, 1)
 Button/constants/outline_size = 0
 Button/styles/normal = SubResource("StyleBoxFlat_t1kv0")
 Button/styles/pressed = SubResource("StyleBoxFlat_fi0f0")
+OptionButton/styles/disabled = SubResource("StyleBoxFlat_rkt6e")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_78ykq")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_qr0ht")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_5whnb")
+PopupMenu/constants/outline_size = 10
+PopupMenu/font_sizes/font_size = 16
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_pf3du")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_pp5fd")
+PopupMenu/styles/separator = SubResource("StyleBoxFlat_tc67j")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 TabContainer/colors/font_hovered_color = Color(0.99999434, 0.46287107, 0.45272702, 1)
 TabContainer/colors/font_selected_color = Color(0.85657686, 0.27468425, 0.25724462, 1)

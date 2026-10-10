@@ -5,6 +5,9 @@
 [ext_resource type="Theme" uid="uid://ei2x2d0fc0ck" path="res://2- General Assets/Theme/e_default_theme.tres" id="3_bdxef"]
 [ext_resource type="Script" uid="uid://t0mqooliqolo" path="res://1- Systems/settings_menu/g_settings_tab.gd" id="4_lwusq"]
 [ext_resource type="PackedScene" uid="uid://6cdqdc3nu244" path="res://1- Systems/settings_menu/t_settings_general.tscn" id="5_03uhn"]
+[ext_resource type="PackedScene" uid="uid://e1jcbpjjrt6f" path="res://1- Systems/settings_menu/t_settings_video.tscn" id="6_bgtbn"]
+[ext_resource type="PackedScene" uid="uid://m1fu043t18cq" path="res://1- Systems/settings_menu/t_settings_audio.tscn" id="7_1hv2s"]
+[ext_resource type="PackedScene" uid="uid://br2nqgx10v5b8" path="res://1- Systems/settings_menu/t_settings_controls.tscn" id="8_8iatq"]
 
 [node name="SettingsMenu" type="Control" unique_id=1028548766]
 layout_mode = 3
@@ -63,10 +66,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("3_bdxef")
-current_tab = 0
+current_tab = 1
 script = ExtResource("4_lwusq")
 
 [node name="General" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=1842336010]
+visible = false
 layout_mode = 2
 offset_transform_enabled = true
 metadata/_tab_index = 0
@@ -85,16 +89,54 @@ theme_override_constants/margin_bottom = -10
 layout_mode = 2
 
 [node name="Video" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=745235418]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer/Video" unique_id=1413183379]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = -39
+theme_override_constants/margin_bottom = -10
+
+[node name="SettingsVideo" parent="MarginContainer2/GridContainer/TabContainer/Video/MarginContainer" unique_id=1949904329 instance=ExtResource("6_bgtbn")]
+layout_mode = 2
 
 [node name="Audio" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=840949551]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer/Audio" unique_id=360767431]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = -39
+theme_override_constants/margin_bottom = -10
+
+[node name="SettingsAudio" parent="MarginContainer2/GridContainer/TabContainer/Audio/MarginContainer" unique_id=2025853204 instance=ExtResource("7_1hv2s")]
+layout_mode = 2
+
 [node name="Controls" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=269511676]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer/Controls" unique_id=1379397971]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = -39
+theme_override_constants/margin_bottom = -10
+
+[node name="SettingsControls" parent="MarginContainer2/GridContainer/TabContainer/Controls/MarginContainer" unique_id=877462675 instance=ExtResource("8_8iatq")]
+layout_mode = 2

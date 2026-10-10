@@ -12,6 +12,8 @@ extends Node
 #===================================================================================================
 #Summ funtions
 
+
+
 func _push_weird(who: Node) -> void:
 	push_error(["Weird error at %s" % str(who)])
 

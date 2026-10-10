@@ -1,7 +1,5 @@
 extends Control
-#fazer max fps
-#fazer tamanho de texto
-
+#Use if need be in the project
 
 #===================================================================================================
 #Variables
