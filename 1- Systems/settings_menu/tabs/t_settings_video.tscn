@@ -51,4 +51,19 @@ popup/item_2/id = 2
 popup/item_3/text = "144"
 popup/item_3/id = 3
 
+[node name="ShowFps" type="HBoxContainer" parent="MarginContainer/GridContainer" unique_id=1668439946]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/GridContainer/ShowFps" unique_id=822710591]
+custom_minimum_size = Vector2(101.915, 33.82)
+layout_mode = 2
+offset_transform_scale = Vector2(0.675, 0.675)
+bbcode_enabled = true
+text = "Show fps:"
+
+[node name="CheckButton" type="CheckBox" parent="MarginContainer/GridContainer/ShowFps" unique_id=582885064]
+layout_mode = 2
+size_flags_vertical = 8
+
 [connection signal="item_selected" from="MarginContainer/GridContainer/MaxFps/OptionButton" to="." method="_set_max_fps"]
+[connection signal="toggled" from="MarginContainer/GridContainer/ShowFps/CheckButton" to="." method="_on_check_button_toggled"]

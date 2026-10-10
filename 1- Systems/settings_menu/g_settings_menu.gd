@@ -1,14 +1,10 @@
-extends Node
-#Resolution
-#Fullscreen
-#Max Fps DONE
-#Show Fps  DONE
+extends Control
+
 
 #===================================================================================================
 #Variables
-
 @export_category("Nodes")
-@export var max_fps_opt_button : OptionButton
+@export var tab_container : TabContainer
 
 #===================================================================================================
 #Dicts and Enums
@@ -16,14 +12,10 @@ extends Node
 #===================================================================================================
 #Main functions
 
+func _ready() -> void:
+	SignalBus.close_settings.connect(_reset_current_tab)
 #===================================================================================================
 #Summ funtions
 
-func _set_max_fps(index := 0) -> void:
-	var max_fps := max_fps_opt_button.get_item_text(index)
-	Engine.max_fps = int(max_fps)
-	
-
-
-func _on_check_button_toggled(toggled_on: bool) -> void:
-	SignalBus.emit_signal("toggle_fps_meter", toggled_on)
+func _reset_current_tab() -> void:
+	tab_container.current_tab = 0

@@ -37,3 +37,6 @@ func _close_settings() -> void:
 		game_menu.show()
 	if settings_menu.has_method("hide"):
 		settings_menu.hide()
+
+func _on_visibility_changed() -> void:
+	SignalBus.emit_signal("close_settings")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bttkit4kg8vsb"]
 
-[ext_resource type="Script" uid="uid://do3vrpcv5rjgg" path="res://1- Systems/menu/t_menu.gd" id="1_1kfuo"]
+[ext_resource type="Script" uid="uid://do3vrpcv5rjgg" path="res://1- Systems/menu/g_menu.gd" id="1_1kfuo"]
 [ext_resource type="Shader" uid="uid://cm6r3b6fc1j6d" path="res://1- Systems/menu/e_menu_background_blur.gdshader" id="1_prbhy"]
 [ext_resource type="Texture2D" uid="uid://d30sxeuoqikpw" path="res://2- General Assets/Images/Bases/EmptyNinePatch.svg" id="2_yu4rf"]
 [ext_resource type="Script" uid="uid://lenbm4xbmppj" path="res://1- Systems/general_use/animated_button/g_button_ninepatch.gd" id="3_1jyql"]
@@ -238,6 +238,7 @@ metadata/_custom_type_script = "uid://lenbm4xbmppj"
 visible = false
 layout_mode = 1
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="GameMenu/VBox/Resume" to="." method="_on_pressed" binds= ["Resume"]]
 [connection signal="pressed" from="GameMenu/VBox/Settings" to="." method="_on_pressed" binds= ["Settings"]]
 [connection signal="pressed" from="GameMenu/VBox/Quit" to="." method="_on_pressed" binds= ["Quit"]]
