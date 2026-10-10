@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://bttkit4kg8vsb"]
 
-[ext_resource type="Script" uid="uid://dx2hgxsufmuo0" path="res://1- Systems/menu/g_pause_button.gd" id="1_1jyql"]
 [ext_resource type="Script" uid="uid://do3vrpcv5rjgg" path="res://1- Systems/menu/t_menu.gd" id="1_1kfuo"]
 [ext_resource type="Shader" uid="uid://cm6r3b6fc1j6d" path="res://1- Systems/menu/e_menu_background_blur.gdshader" id="1_prbhy"]
 [ext_resource type="Texture2D" uid="uid://d30sxeuoqikpw" path="res://2- General Assets/Images/Bases/EmptyNinePatch.svg" id="2_yu4rf"]
 [ext_resource type="Script" uid="uid://lenbm4xbmppj" path="res://1- Systems/general_use/animated_button/g_button_ninepatch.gd" id="3_1jyql"]
-[ext_resource type="Script" uid="uid://y5eo2qa2nhkl" path="res://1- Systems/menu/g_quit_button.gd" id="4_yu4rf"]
-[ext_resource type="Script" uid="uid://dombdrragrobc" path="res://1- Systems/menu/g_settings_button.gd" id="5_dfi8l"]
+[ext_resource type="Script" uid="uid://cudo2bl06d0q1" path="res://1- Systems/general_use/animated_button/g_animated_button.gd" id="3_dfi8l"]
 [ext_resource type="PackedScene" uid="uid://vsf8npyq7ju5" path="res://1- Systems/settings_menu/t_settings_menu.tscn" id="8_34jhu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yu4rf"]
@@ -102,7 +100,9 @@ theme_override_font_sizes/font_size = 24
 text = "Resume Game
 "
 flat = true
-script = ExtResource("1_1jyql")
+script = ExtResource("3_dfi8l")
+hover_scale = Vector2(1.03, 1.03)
+press_scale = Vector2(0.96, 0.96)
 metadata/_custom_type_script = "uid://cudo2bl06d0q1"
 
 [node name="MarginContainer" type="MarginContainer" parent="GameMenu/VBox/Resume" unique_id=97092454]
@@ -146,7 +146,9 @@ theme_override_font_sizes/font_size = 24
 text = "Settings
 "
 flat = true
-script = ExtResource("5_dfi8l")
+script = ExtResource("3_dfi8l")
+hover_scale = Vector2(1.03, 1.03)
+press_scale = Vector2(0.96, 0.96)
 metadata/_custom_type_script = "uid://cudo2bl06d0q1"
 
 [node name="MarginContainer" type="MarginContainer" parent="GameMenu/VBox/Settings" unique_id=1508305655]
@@ -195,7 +197,9 @@ offset_transform_pivot_ratio = Vector2(0.5, 1)
 theme_override_font_sizes/font_size = 24
 text = "Quit"
 flat = true
-script = ExtResource("4_yu4rf")
+script = ExtResource("3_dfi8l")
+hover_scale = Vector2(1.03, 1.03)
+press_scale = Vector2(0.96, 0.96)
 metadata/_custom_type_script = "uid://cudo2bl06d0q1"
 
 [node name="MarginContainer" type="MarginContainer" parent="GameMenu/VBox/Quit" unique_id=937247044]
@@ -234,6 +238,6 @@ metadata/_custom_type_script = "uid://lenbm4xbmppj"
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="GameMenu/VBox/Resume" to="GameMenu/VBox/Resume" method="_on_pressed"]
-[connection signal="pressed" from="GameMenu/VBox/Settings" to="GameMenu/VBox/Settings" method="_on_pressed"]
-[connection signal="pressed" from="GameMenu/VBox/Quit" to="GameMenu/VBox/Quit" method="_on_pressed"]
+[connection signal="pressed" from="GameMenu/VBox/Resume" to="." method="_on_pressed" binds= ["Resume"]]
+[connection signal="pressed" from="GameMenu/VBox/Settings" to="." method="_on_pressed" binds= ["Settings"]]
+[connection signal="pressed" from="GameMenu/VBox/Quit" to="." method="_on_pressed" binds= ["Quit"]]

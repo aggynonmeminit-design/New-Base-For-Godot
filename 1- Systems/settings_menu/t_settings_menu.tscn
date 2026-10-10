@@ -3,11 +3,27 @@
 [ext_resource type="Texture2D" uid="uid://d30sxeuoqikpw" path="res://2- General Assets/Images/Bases/EmptyNinePatch.svg" id="1_m3i1l"]
 [ext_resource type="Script" uid="uid://lenbm4xbmppj" path="res://1- Systems/general_use/animated_button/g_button_ninepatch.gd" id="2_03uhn"]
 [ext_resource type="Theme" uid="uid://ei2x2d0fc0ck" path="res://2- General Assets/Theme/e_default_theme.tres" id="3_bdxef"]
-[ext_resource type="Script" uid="uid://t0mqooliqolo" path="res://1- Systems/settings_menu/g_settings_tab.gd" id="4_lwusq"]
-[ext_resource type="PackedScene" uid="uid://6cdqdc3nu244" path="res://1- Systems/settings_menu/t_settings_general.tscn" id="5_03uhn"]
-[ext_resource type="PackedScene" uid="uid://e1jcbpjjrt6f" path="res://1- Systems/settings_menu/t_settings_video.tscn" id="6_bgtbn"]
-[ext_resource type="PackedScene" uid="uid://m1fu043t18cq" path="res://1- Systems/settings_menu/t_settings_audio.tscn" id="7_1hv2s"]
-[ext_resource type="PackedScene" uid="uid://br2nqgx10v5b8" path="res://1- Systems/settings_menu/t_settings_controls.tscn" id="8_8iatq"]
+[ext_resource type="PackedScene" uid="uid://6cdqdc3nu244" path="res://1- Systems/settings_menu/tabs/t_settings_general.tscn" id="5_03uhn"]
+[ext_resource type="PackedScene" uid="uid://e1jcbpjjrt6f" path="res://1- Systems/settings_menu/tabs/t_settings_video.tscn" id="6_bgtbn"]
+[ext_resource type="PackedScene" uid="uid://m1fu043t18cq" path="res://1- Systems/settings_menu/tabs/t_settings_audio.tscn" id="7_1hv2s"]
+[ext_resource type="PackedScene" uid="uid://br2nqgx10v5b8" path="res://1- Systems/settings_menu/tabs/t_settings_controls.tscn" id="8_8iatq"]
+[ext_resource type="Script" uid="uid://c7h5bk1q7q0yh" path="res://1- Systems/settings_menu/g_close_settings_button.gd" id="8_bgtbn"]
+
+[sub_resource type="GDScript" id="GDScript_1hv2s"]
+script/source = "extends TabContainer
+
+#===================================================================================================
+#Variables
+
+#===================================================================================================
+#Dicts and Enums
+
+#===================================================================================================
+#Main functions
+
+#===================================================================================================
+#Summ funtions
+"
 
 [node name="SettingsMenu" type="Control" unique_id=1028548766]
 layout_mode = 3
@@ -66,11 +82,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("3_bdxef")
-current_tab = 1
-script = ExtResource("4_lwusq")
+current_tab = 0
+script = SubResource("GDScript_1hv2s")
 
 [node name="General" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=1842336010]
-visible = false
 layout_mode = 2
 offset_transform_enabled = true
 metadata/_tab_index = 0
@@ -89,6 +104,7 @@ theme_override_constants/margin_bottom = -10
 layout_mode = 2
 
 [node name="Video" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=745235418]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -140,3 +156,48 @@ theme_override_constants/margin_bottom = -10
 
 [node name="SettingsControls" parent="MarginContainer2/GridContainer/TabContainer/Controls/MarginContainer" unique_id=877462675 instance=ExtResource("8_8iatq")]
 layout_mode = 2
+
+[node name="AnimatedButton" type="Button" parent="." unique_id=516423541]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -162.0
+offset_top = -74.0
+offset_right = -14.0
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+pivot_offset_ratio = Vector2(1, 0.5)
+text = "Close settings"
+flat = true
+script = ExtResource("8_bgtbn")
+metadata/_custom_type_script = "uid://cudo2bl06d0q1"
+
+[node name="MarginContainer" type="MarginContainer" parent="AnimatedButton" unique_id=907612311]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonNinePatch" type="NinePatchRect" parent="AnimatedButton/MarginContainer" unique_id=2094391985]
+modulate = Color(0.4117647, 0.19215687, 0.25490198, 1)
+show_behind_parent = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 0.11)
+texture = ExtResource("1_m3i1l")
+patch_margin_left = 13
+patch_margin_top = 13
+patch_margin_right = 13
+patch_margin_bottom = 18
+script = ExtResource("2_03uhn")
+metadata/_custom_type_script = "uid://lenbm4xbmppj"
+
+[connection signal="pressed" from="AnimatedButton" to="AnimatedButton" method="_on_pressed"]

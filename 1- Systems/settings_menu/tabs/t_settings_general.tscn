@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://6cdqdc3nu244"]
+
+[ext_resource type="Script" uid="uid://dark3reqb03hs" path="res://1- Systems/settings_menu/tabs/g_settings_general.gd" id="1_xlru3"]
+
+[node name="SettingsGeneral" type="Control" unique_id=952609840]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xlru3")
