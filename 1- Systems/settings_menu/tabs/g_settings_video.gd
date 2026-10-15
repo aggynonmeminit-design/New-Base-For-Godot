@@ -8,10 +8,11 @@ extends Node
 #Variables
 
 @export_category("Nodes")
-@export var max_fps_opt_button : OptionButton
+@export var max_fps_button    : OptionButton
+@export var show_fps_button   : CheckBox
+
 
 var video_settings : Dictionary
-
 
 #===================================================================================================
 #Dicts and Enums
@@ -21,17 +22,28 @@ var video_settings : Dictionary
 
 func _ready() -> void:
 	video_settings = Config._load_settings("VIDEO")
-	_set_max_fps(-2)
+	
+	_set_max_fps(0, true)
+	_toggle_fps_meter(false, true)
 	
 #===================================================================================================
 #Summ funtions
 
-func _set_max_fps(index := 0) -> void:
+func _set_max_fps(index := 0, first_loading:bool=false) -> void:
 	var max_fps: int = video_settings.max_fps
-	if index >= -1:
-		max_fps = int(max_fps_opt_button.get_item_text(index))
+	if !first_loading:
+		max_fps = int(max_fps_button.get_item_text(index))
 	Config._save_settings("VIDEO", "max_fps", max_fps)
 	Engine.max_fps = max_fps
+	for i in max_fps_button.item_count: 
+		if max_fps_button.get_item_text(i) == str(max_fps):
+			max_fps_button.select(i)
 
-func _on_check_button_toggled(toggled_on: bool) -> void:
-	SignalBus.emit_signal("toggle_fps_meter", toggled_on)
+func _toggle_fps_meter(toggled_on: bool, first_loading:bool=false) -> void:
+	var show_fps: bool = video_settings.show_fps
+	if !first_loading:
+		show_fps = toggled_on
+	Config._save_settings("VIDEO", "show_fps", show_fps)
+	SignalBus.emit_signal("toggle_fps_meter", show_fps)
+	show_fps_button.button_pressed = show_fps
+	

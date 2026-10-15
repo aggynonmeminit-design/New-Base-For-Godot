@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cssvkpit3mtsh" path="res://1- Systems/settings_menu/tabs/g_settings_video.gd" id="1_j13a1"]
 
-[node name="SettingsVideo" type="Control" unique_id=1949904329 node_paths=PackedStringArray("max_fps_opt_button")]
+[node name="SettingsVideo" type="Control" unique_id=1949904329 node_paths=PackedStringArray("max_fps_button", "show_fps_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,7 +10,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j13a1")
-max_fps_opt_button = NodePath("MarginContainer/GridContainer/MaxFps/OptionButton")
+max_fps_button = NodePath("MarginContainer/GridContainer/MaxFps/OptionButton")
+show_fps_button = NodePath("MarginContainer/GridContainer/ShowFps/CheckButton")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=350331244]
 layout_mode = 1
@@ -66,4 +67,4 @@ layout_mode = 2
 size_flags_vertical = 8
 
 [connection signal="item_selected" from="MarginContainer/GridContainer/MaxFps/OptionButton" to="." method="_set_max_fps"]
-[connection signal="toggled" from="MarginContainer/GridContainer/ShowFps/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="MarginContainer/GridContainer/ShowFps/CheckButton" to="." method="_toggle_fps_meter"]
