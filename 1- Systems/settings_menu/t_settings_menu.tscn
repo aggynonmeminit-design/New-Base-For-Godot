@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://m1fu043t18cq" path="res://1- Systems/settings_menu/tabs/t_settings_audio.tscn" id="7_1hv2s"]
 [ext_resource type="PackedScene" uid="uid://br2nqgx10v5b8" path="res://1- Systems/settings_menu/tabs/t_settings_controls.tscn" id="8_8iatq"]
 [ext_resource type="Script" uid="uid://c7h5bk1q7q0yh" path="res://1- Systems/settings_menu/g_close_settings_button.gd" id="8_bgtbn"]
+[ext_resource type="Script" uid="uid://bth3p8gf65l88" path="res://1- Systems/settings_menu/g_apply_settings_button.gd" id="10_8iatq"]
 
 [sub_resource type="GDScript" id="GDScript_1hv2s"]
 script/source = "extends TabContainer
@@ -160,7 +161,50 @@ theme_override_constants/margin_bottom = -10
 [node name="SettingsControls" parent="MarginContainer2/GridContainer/TabContainer/Controls/MarginContainer" unique_id=877462675 instance=ExtResource("8_8iatq")]
 layout_mode = 2
 
-[node name="AnimatedButton" type="Button" parent="." unique_id=516423541]
+[node name="Close" type="Button" parent="." unique_id=516423541]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -630.0
+offset_top = -74.0
+offset_right = -481.99908
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+pivot_offset_ratio = Vector2(1, 0.5)
+text = "Close settings"
+flat = true
+script = ExtResource("8_bgtbn")
+metadata/_custom_type_script = "uid://cudo2bl06d0q1"
+
+[node name="MarginContainer" type="MarginContainer" parent="Close" unique_id=907612311]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonNinePatch" type="NinePatchRect" parent="Close/MarginContainer" unique_id=2094391985]
+modulate = Color(0.4117647, 0.19215687, 0.25490198, 1)
+show_behind_parent = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 0.11)
+texture = ExtResource("1_m3i1l")
+patch_margin_left = 13
+patch_margin_top = 13
+patch_margin_right = 13
+patch_margin_bottom = 18
+script = ExtResource("2_03uhn")
+metadata/_custom_type_script = "uid://lenbm4xbmppj"
+
+[node name="Apply" type="Button" parent="." unique_id=902474629]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -175,12 +219,12 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.6, 0.6)
 pivot_offset_ratio = Vector2(1, 0.5)
-text = "Close settings"
+text = "Apply"
 flat = true
-script = ExtResource("8_bgtbn")
+script = ExtResource("10_8iatq")
 metadata/_custom_type_script = "uid://cudo2bl06d0q1"
 
-[node name="MarginContainer" type="MarginContainer" parent="AnimatedButton" unique_id=907612311]
+[node name="MarginContainer" type="MarginContainer" parent="Apply" unique_id=2085019418]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -189,7 +233,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ButtonNinePatch" type="NinePatchRect" parent="AnimatedButton/MarginContainer" unique_id=2094391985]
+[node name="ButtonNinePatch" type="NinePatchRect" parent="Apply/MarginContainer" unique_id=239042969]
 modulate = Color(0.4117647, 0.19215687, 0.25490198, 1)
 show_behind_parent = true
 layout_mode = 2
@@ -203,4 +247,5 @@ patch_margin_bottom = 18
 script = ExtResource("2_03uhn")
 metadata/_custom_type_script = "uid://lenbm4xbmppj"
 
-[connection signal="pressed" from="AnimatedButton" to="AnimatedButton" method="_on_pressed"]
+[connection signal="pressed" from="Close" to="Close" method="_on_pressed"]
+[connection signal="pressed" from="Apply" to="Apply" method="_on_pressed"]

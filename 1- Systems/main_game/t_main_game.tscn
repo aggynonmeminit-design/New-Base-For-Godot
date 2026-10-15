@@ -78,6 +78,7 @@ mouse_filter = 1
 layer = 21
 
 [node name="FpsMeter" parent="Hud/HudRoot/AbovePauseBlur" unique_id=362070784 instance=ExtResource("7_ifhs5")]
+process_mode = 3
 mouse_filter = 2
 
 [node name="Pause" type="CanvasLayer" parent="." unique_id=563949156]
