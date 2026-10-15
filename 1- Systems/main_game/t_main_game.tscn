@@ -1,6 +1,5 @@
-[gd_scene format=3 uid="uid://8hxdt3rtgt7n"]
+[gd_scene format=3 uid="uid://dmiyunhbrj2s1"]
 
-[ext_resource type="Script" uid="uid://cxslkq4cjjok1" path="res://1- Systems/main_game/g_main_game.gd" id="1_mp05p"]
 [ext_resource type="Texture2D" uid="uid://b5r4hug1jkhvq" path="res://2- General Assets/Images/Bases/PlaceHolderCheckeredBoard.png" id="2_e0n53"]
 [ext_resource type="Script" uid="uid://vrpy4sfbtrm0" path="res://1- Systems/main_game/g_systems.gd" id="2_ifhs5"]
 [ext_resource type="Material" uid="uid://c0bwtie3wp8h6" path="res://1- Systems/debug/checkered_board/s_checkered_board.tres" id="2_w1n1r"]
@@ -15,7 +14,6 @@
 
 [node name="MainGame" type="Node" unique_id=1749332084]
 process_mode = 3
-script = ExtResource("1_mp05p")
 
 [node name="Systems" type="Node" parent="." unique_id=2097169342 node_paths=PackedStringArray("pause_root", "hud_root", "transition_root", "pause_menu", "fps_meter")]
 process_mode = 3

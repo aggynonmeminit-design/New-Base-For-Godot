@@ -11,6 +11,9 @@
 shader = ExtResource("1_prbhy")
 shader_parameter/lod = 1.200000057
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kfuo"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhunq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sky72"]
@@ -30,7 +33,7 @@ script = ExtResource("1_1kfuo")
 game_menu = NodePath("GameMenu")
 settings_menu = NodePath("SettingsMenu")
 
-[node name="Background" type="Panel" parent="." unique_id=173176362]
+[node name="Blur" type="Panel" parent="." unique_id=173176362]
 modulate = Color(0.45735657, 0.3124096, 1, 1)
 material = SubResource("ShaderMaterial_yu4rf")
 layout_mode = 1
@@ -48,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1kfuo")
 
 [node name="GameMenu" type="MarginContainer" parent="." unique_id=673377079]
 layout_mode = 1

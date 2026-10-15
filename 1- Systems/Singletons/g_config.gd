@@ -20,5 +20,5 @@ func _ready() -> void:
 
 func _test_save() -> void:
 	config.load(path)
-	config.set_value("GENERAL", "async", true)
+	config.set_value("GENERAL", "test", true)
 	config.save(path)
