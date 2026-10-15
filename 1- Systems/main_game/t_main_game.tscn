@@ -24,7 +24,7 @@ pause_root = NodePath("../Pause/PauseRoot")
 hud_root = NodePath("../Hud/HudRoot")
 transition_root = NodePath("../Transition/TrasitionRoot")
 pause_menu = NodePath("../Pause/PauseRoot/Menu")
-fps_meter = NodePath("../Hud/HudRoot/FpsMeter")
+fps_meter = NodePath("../Hud/HudRoot/AbovePauseBlur/FpsMeter")
 
 [node name="World" type="Node2D" parent="." unique_id=1990451398]
 process_mode = 1
@@ -76,8 +76,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="FpsMeter" parent="Hud/HudRoot" unique_id=362070784 instance=ExtResource("7_ifhs5")]
-layout_mode = 1
+[node name="AbovePauseBlur" type="CanvasLayer" parent="Hud/HudRoot" unique_id=696898172]
+layer = 21
+
+[node name="FpsMeter" parent="Hud/HudRoot/AbovePauseBlur" unique_id=362070784 instance=ExtResource("7_ifhs5")]
+mouse_filter = 2
 
 [node name="Pause" type="CanvasLayer" parent="." unique_id=563949156]
 process_mode = 2
