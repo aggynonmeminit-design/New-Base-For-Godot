@@ -67,4 +67,3 @@ func _reset_non_applied() -> void:
 
 func _update_current()->void:
 	default_values = video_settings
-	
