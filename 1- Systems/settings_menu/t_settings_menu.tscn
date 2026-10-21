@@ -89,76 +89,43 @@ theme = ExtResource("3_bdxef")
 current_tab = 0
 script = SubResource("GDScript_1hv2s")
 
-[node name="General" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=1842336010]
+[node name="General" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer" unique_id=966192612]
 layout_mode = 2
-offset_transform_enabled = true
+theme_override_constants/margin_right = -39
+theme_override_constants/margin_bottom = -10
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer/General" unique_id=966192612]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_right = -39
-theme_override_constants/margin_bottom = -10
-
-[node name="SettingsGeneral" parent="MarginContainer2/GridContainer/TabContainer/General/MarginContainer" unique_id=952609840 instance=ExtResource("5_03uhn")]
+[node name="SettingsGeneral" parent="MarginContainer2/GridContainer/TabContainer/General" unique_id=952609840 instance=ExtResource("5_03uhn")]
 layout_mode = 2
 
-[node name="Video" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=745235418]
+[node name="Video" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer" unique_id=1413183379]
 visible = false
 layout_mode = 2
+theme_override_constants/margin_right = -39
+theme_override_constants/margin_bottom = -10
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer/Video" unique_id=1413183379]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_right = -39
-theme_override_constants/margin_bottom = -10
-
-[node name="SettingsVideo" parent="MarginContainer2/GridContainer/TabContainer/Video/MarginContainer" unique_id=1949904329 instance=ExtResource("6_bgtbn")]
+[node name="SettingsVideo" parent="MarginContainer2/GridContainer/TabContainer/Video" unique_id=1949904329 instance=ExtResource("6_bgtbn")]
 layout_mode = 2
 
-[node name="Audio" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=840949551]
+[node name="Audio" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer" unique_id=360767431]
 visible = false
 layout_mode = 2
+theme_override_constants/margin_right = -39
+theme_override_constants/margin_bottom = -10
 metadata/_tab_index = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer/Audio" unique_id=360767431]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_right = -39
-theme_override_constants/margin_bottom = -10
-
-[node name="SettingsAudio" parent="MarginContainer2/GridContainer/TabContainer/Audio/MarginContainer" unique_id=2025853204 instance=ExtResource("7_1hv2s")]
+[node name="SettingsAudio" parent="MarginContainer2/GridContainer/TabContainer/Audio" unique_id=2025853204 instance=ExtResource("7_1hv2s")]
 layout_mode = 2
 
-[node name="Controls" type="TabBar" parent="MarginContainer2/GridContainer/TabContainer" unique_id=269511676]
+[node name="Controls" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer" unique_id=1379397971]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/GridContainer/TabContainer/Controls" unique_id=1379397971]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_right = -39
 theme_override_constants/margin_bottom = -10
+metadata/_tab_index = 3
 
-[node name="SettingsControls" parent="MarginContainer2/GridContainer/TabContainer/Controls/MarginContainer" unique_id=877462675 instance=ExtResource("8_8iatq")]
+[node name="SettingsControls" parent="MarginContainer2/GridContainer/TabContainer/Controls" unique_id=877462675 instance=ExtResource("8_8iatq")]
 layout_mode = 2
 
 [node name="Close" type="Button" parent="." unique_id=516423541]

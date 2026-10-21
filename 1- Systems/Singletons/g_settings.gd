@@ -21,7 +21,8 @@ func _ready() -> void:
 		config.set_value("KEYBINDING", "c_Walk_left", "A")
 		config.set_value("KEYBINDING", "c_Walk_right", "D")
 		config.set_value("KEYBINDING", "c_Pause", "Escape")
-
+		config.set_value("KEYBINDING", "c_Run", "Shift")
+		
 		#Video
 		config.set_value("VIDEO", "show_fps", false)
 		config.set_value("VIDEO", "max_fps", 60)

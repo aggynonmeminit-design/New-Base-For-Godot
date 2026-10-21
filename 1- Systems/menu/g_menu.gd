@@ -2,9 +2,10 @@ extends Control
 
 #===================================================================================================
 #Variables
-@export var game_menu : MarginContainer
+@export_category("Nodes")
+@export var game_menu     : MarginContainer
 @export var settings_menu : Control
-
+@export var tab_container : TabContainer 
 #===================================================================================================
 #Dicts and Enums
 
@@ -12,6 +13,7 @@ extends Control
 #Main functions
 
 func _ready() -> void:
+	tab_container = settings_menu.tab_container
 	SignalBus.open_settings.connect(_open_settings)
 	SignalBus.close_settings.connect(_close_settings)
 
@@ -39,4 +41,10 @@ func _close_settings() -> void:
 		settings_menu.hide()
 
 func _on_visibility_changed() -> void:
-	SignalBus.emit_signal("close_settings")
+	await ready
+	var tab     : MarginContainer = tab_container.get_current_tab_control()
+	@warning_ignore("untyped_declaration")
+	var settings : Array = tab.get_child(0).settings
+	var default  : Dictionary = settings.get(0)
+	var saved    : Dictionary = settings.get(1)
+	SignalBus.emit_signal("check_applied", default, saved)
